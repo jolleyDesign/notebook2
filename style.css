@@ -2,7 +2,7 @@
 .dark-mode {
     background: black;
     color: var(--text-text-white);
-    border: 1px solid var(--border-neutral-border);
+    border: 1px solid rgba(100, 116, 139, .7);
 }
 .light-mode {
     background: var(--backgrounds-bg-surface-300);
@@ -12,11 +12,18 @@
 .light-mode:focus {
     background: white;
     box-shadow: 0px 40px 60px -12px rgba(0, 0, 0, 0.10), 0px 16px 24px -8px rgba(0, 0, 0, 0.05);
+    opacity: 100%;
+    transition: background 0.3s ease;
 }
 
 .dark-mode:focus {
     background: rgb(18, 18, 18);
     box-shadow: 0px 40px 60px -12px rgba(0, 0, 0, 0.10), 0px 16px 24px -8px rgba(0, 0, 0, 0.05);
+    opacity: 100%;
+    border: 1px solid rgba(100, 116, 139);
+    transition: background 0.3s ease;
+    transition: border 0.3s ease;
+
 }
 
 html, body {
@@ -46,6 +53,7 @@ html, body {
     font-size: 16px;
     transition: background 0.3s ease;
     min-width: 40%;
+    opacity: 90%;
     /* max-height: 9999999px;
     transition: max-height 0.3s ease; */
     /* transition: border 0.3s ease; */
