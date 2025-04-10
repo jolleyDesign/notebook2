@@ -72,6 +72,7 @@ function addRow() {
         newDiv.classList.add("light-mode");
     }
     newDiv.contentEditable = true;
+    newDiv.focus();
 }
 
 document.addEventListener("keydown", (event) => {
@@ -81,3 +82,9 @@ document.addEventListener("keydown", (event) => {
     }
 })
 
+function deleteRow() {
+    // check if div is empty
+    // remove the div which is in focus
+}
+
+// add an event listener for backspace and trigger deleteRow() function
