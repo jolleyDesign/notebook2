@@ -48,7 +48,7 @@ html, body {
 .editor {  
     flex: 1;
     padding: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     outline: none;
     font-size: 16px;
     transition: background 0.3s ease;
