@@ -3,6 +3,9 @@ const editorEl = document.getElementsByClassName("editor");
 const boldButton = document.getElementById("bold-button");
 const container = document.getElementById("container");
 
+// editorEl.empty(); 
+// editorEl.setAttribute("placeholder", "Write something here...");
+
 function toggleTheme() {
     if (isDarkMode === false) {
         document.querySelectorAll(".editor").forEach(e => e.classList.add("dark-mode"));
@@ -22,7 +25,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-
+// type styling
 function boldText() {
     document.execCommand('bold', false, null);
     // editorEl.focus();
@@ -62,6 +65,8 @@ document.addEventListener("keydown", (event) => {
     }
 })
 
+let rowCount = 1;
+
 function addRow() {
     let newDiv = document.createElement("div");
     container.appendChild(newDiv);
@@ -73,6 +78,9 @@ function addRow() {
     }
     newDiv.contentEditable = true;
     newDiv.focus();
+    newDiv.setAttribute("placeholder", "Write something here...");
+    rowCount += 1;
+    newDiv.setAttribute("id", "div" + rowCount);
 }
 
 document.addEventListener("keydown", (event) => {
@@ -82,9 +90,31 @@ document.addEventListener("keydown", (event) => {
     }
 })
 
+
+// function deleteRow() {
+//     if (document.getElementById("div" + rowCount).textContent === "" && document.getElementById("div" + rowCount) === document.activeElement) {
+//             document.getElementById("div" + rowCount).remove();
+//             rowCount -= 1;
+//             document.getElementById("div" + rowCount).focus();
+//     }
+// }
+
 function deleteRow() {
-    // check if div is empty
-    // remove the div which is in focus
+    let activeDiv = document.activeElement;
+    if (activeDiv.textContent === "" && rowCount > 1) {
+        nextDiv = activeDiv.previousElementSibling;
+        activeDiv.remove();
+        rowCount -= 1;
+        nextDiv.focus();
+    }
 }
 
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Backspace") {
+        deleteRow();
+    }
+})
+
 // add an event listener for backspace and trigger deleteRow() function
+
+document.getElementById("editor").focus();
