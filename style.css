@@ -1,10 +1,11 @@
 /* dark + light mode theming  */
-.dark-mode {
+.dark-mode, .dark-mode path {
     background: black;
     color: var(--text-text-white);
     border: 1px solid rgba(100, 116, 139, .7);
+    stroke: white;
 }
-.light-mode {
+.light-mode, .light-mode path {
     background: var(--backgrounds-bg-surface-300);
     color: var(--text-text-normal);
 }
@@ -52,7 +53,7 @@ html, body {
     outline: none;
     font-size: 16px;
     transition: background 0.3s ease;
-    min-width: 40%;
+    min-width: 300px;
     opacity: 90%;
     /* max-height: 9999999px;
     transition: max-height 0.3s ease; */
@@ -75,6 +76,24 @@ html, body {
     bottom: 1rem;
     right: 1rem;
     transition: 0.2s ease;
+}
+
+.toggle-theme {
+    display: flex;
+    padding: 1rem;
+    border-radius: 1rem;
+    opacity: .8;
+    justify-content: center;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    transition: 0.2s ease;
+}
+
+.toggle-theme:hover {
+    padding: 1.5rem;
+    transition: 0.2s ease;
+    opacity: 1;
 }
 
 .add-row:hover {

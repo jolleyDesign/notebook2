@@ -10,9 +10,13 @@ function toggleTheme() {
     if (isDarkMode === false) {
         document.querySelectorAll(".editor").forEach(e => e.classList.add("dark-mode"));
         document.querySelectorAll(".editor").forEach(e => e.classList.remove("light-mode"));
+        document.getElementById("toggle-theme").classList.remove("dark-mode");
+        document.getElementById("toggle-theme").classList.add("light-mode");
         isDarkMode = true;
     } else {
         document.querySelectorAll(".editor").forEach(e => e.classList.add("light-mode"));
+        document.getElementById("toggle-theme").classList.remove("light-mode");
+        document.getElementById("toggle-theme").classList.add("dark-mode");
         document.querySelectorAll(".editor").forEach(e => e.classList.remove("dark-mode"));
         isDarkMode = false;
     }
