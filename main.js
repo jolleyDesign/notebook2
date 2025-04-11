@@ -23,7 +23,7 @@ function toggleTheme() {
 }
 
 document.addEventListener("keydown", (event) => {
-    if (event.metaKey && event.key === "d") {
+    if (event.metaKey || event.ctrlKey && event.key === "d") {
         event.preventDefault();
         toggleTheme();
     }
@@ -47,7 +47,7 @@ function underlineText() {
 
 // bold event lister
 document.addEventListener("keydown", (event) => {
-    if (event.metaKey && event.key === "b") {
+    if (event.metaKey || event.ctrlKey && event.key === "b") {
         event.preventDefault();
         boldText();
     }
@@ -55,7 +55,7 @@ document.addEventListener("keydown", (event) => {
 
 // italic event listener
 document.addEventListener("keydown", (event) => {
-    if (event.metaKey && event.key === "i") {
+    if (event.metaKey || event.ctrlKey && event.key === "i") {
         event.preventDefault();
         italicText();
     }
@@ -63,7 +63,7 @@ document.addEventListener("keydown", (event) => {
 
 // underline event listener
 document.addEventListener("keydown", (event) => {
-    if (event.metaKey && event.key === "u") {
+    if (event.metaKey || event.ctrlKey && event.key === "u") {
         event.preventDefault();
         underlineText();
     }
@@ -82,18 +82,31 @@ function addRow() {
     }
     newDiv.contentEditable = true;
     newDiv.focus();
-    newDiv.setAttribute("placeholder", "Write something here...");
+    newDiv.setAttribute("placeholder", "Write something...");
     rowCount += 1;
     newDiv.setAttribute("id", "div" + rowCount);
 }
 
 document.addEventListener("keydown", (event) => {
-    if (event.metaKey && event.key === "Enter") {
+    if (event.metaKey || event.ctrlKey && event.key === "Enter") {
         event.preventDefault();
         addRow();
     }
 })
 
+function toggleGrid() {
+    if (container.classList.contains("grid-wrap")) {
+        container.classList.remove("grid-wrap");
+        container.classList.add("grid-stack");
+        document.getElementById("grid-button").classList.add("dark-mode");
+        document.getElementById("grid-button").classList.remove("light-mode");
+    } else {
+        container.classList.remove("grid-stack");
+        container.classList.add("grid-wrap");
+        document.getElementById("grid-button").classList.remove("dark-mode");
+        document.getElementById("grid-button").classList.add("light-mode");
+    }
+}
 
 // function deleteRow() {
 //     if (document.getElementById("div" + rowCount).textContent === "" && document.getElementById("div" + rowCount) === document.activeElement) {
