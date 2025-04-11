@@ -94,6 +94,13 @@ document.addEventListener("keydown", (event) => {
     }
 })
 
+document.addEventListener("keydown", (event) => {
+    if (event.metaKey || event.ctrlKey && event.key === "g") {
+        event.preventDefault();
+        toggleGrid();
+    }
+})
+
 function toggleGrid() {
     if (container.classList.contains("grid-wrap")) {
         container.classList.remove("grid-wrap");
