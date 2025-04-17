@@ -96,8 +96,8 @@ html, body {
     outline: none;
     font-size: 16px;
     transition: background 0.3s ease;
-    min-width: 300px;
     opacity: 90%;
+    min-width: 300px;
     /* max-height: 9999999px;
     transition: max-height 0.3s ease; */
     /* transition: border 0.3s ease; */
