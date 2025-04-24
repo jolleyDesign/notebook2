@@ -2,7 +2,7 @@
 .dark-mode, .dark-mode path {
     background: black;
     color: var(--text-text-white);
-    border: 2px solid rgba(100, 116, 139, .7);
+    /* border: 2px solid rgba(100, 116, 139, .7); */
     stroke: white;
 }
 .light-mode, .light-mode path {
@@ -11,19 +11,63 @@
 }
 
 .light-mode:focus {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     background: white;
-    box-shadow: 0px 40px 60px -12px rgba(0, 0, 0, 0.10), 0px 16px 24px -8px rgba(0, 0, 0, 0.05);
     opacity: 100%;
     transition: background 0.3s ease;
 }
 
 .dark-mode:focus {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     background: rgb(18, 18, 18);
-    box-shadow: 0px 40px 60px -12px rgba(0, 0, 0, 0.10), 0px 16px 24px -8px rgba(0, 0, 0, 0.05);
-    opacity: 100%;
+   opacity: 100%;
     border: 1px solid rgba(100, 116, 139);
     transition: background 0.3s ease;
     transition: border 0.3s ease;
+
+}
+
+.light-body {
+    background: var(--backgrounds-bg-surface-100);
+}
+
+.dark-body {
+    background: var(--backgrounds-bg-dark);
+}
+
+body {
+    transition: 0.3s ease;
+}
+
+.actionbar {
+    position: absolute;
+    display: none;
+    background: white;
+    padding: .5rem;
+    border-radius: 1rem;
+    z-index: 1000;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+.actionbar.visible {
+    display: flex;
+    opacity: .9;
+    transition: 0.2s ease;
+    border: 1px solid var(--border-neutral-border-secondary);
+}
+
+.actionbar button {
+    border: none;
+    outline: none;
+    background: none;
+    border-radius: .5rem;
+    transition: 0.2s ease;
+}
+
+.actionbar button:hover {
+    background: var(--backgrounds-bg-surface-300);
+    transition: 0.2s ease;
 
 }
 
@@ -32,7 +76,8 @@ html, body {
     padding: 0;
     height: 100%;
     font-family: Inter, sans-serif;
-    --c-0: hsla(220, 77%, 32%, 1);
+   /* background moving gradient */
+    /* --c-0: hsla(220, 77%, 32%, 1);
     --y-0: 69%;
     --x-0: 57%;
     --x-1: 98%;
@@ -69,8 +114,8 @@ html, body {
     animation: hero-gradient-animation 10s linear infinite alternate;
     background-blend-mode: normal, normal, normal, normal, normal;
     /* background: var(--gradient-dark-grey-gradient, linear-gradient(0deg, black 0%, var(--backgrounds-bg-dark, #64748B) 100%)); */
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-repeat: no-repeat;
+    background-attachment: fixed; */
 }
 
 
@@ -97,7 +142,7 @@ html, body {
     font-size: 16px;
     transition: background 0.3s ease;
     opacity: 90%;
-    min-width: 300px;
+    min-width: 200px;
     /* max-height: 9999999px;
     transition: max-height 0.3s ease; */
     /* transition: border 0.3s ease; */
@@ -145,11 +190,11 @@ html, body {
     opacity: 1;
 }
 .shadow {
-    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.10), 0px 4px 8px 0px rgba(0, 0, 0, 0.06);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .shadow-lg {
-    box-shadow: 0px 40px 60px -12px rgba(0, 0, 0, 0.10), 0px 16px 24px -8px rgba(0, 0, 0, 0.05);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
 }
 
 .left-container {
@@ -174,7 +219,7 @@ html, body {
     opacity: 1;
 }
 
-@keyframes hero-gradient-animation {
+/* @keyframes hero-gradient-animation {
     0% {
         --c-0: hsla(220, 77%, 32%, 1);
         --y-0: 69%;
@@ -438,4 +483,10 @@ html, body {
     syntax: '<color>';
     inherits: false;
     initial-value: hsla(217.99999999999997, 34%, 59%, 0.92)
+} */
+
+
+
+#gtx-trans {
+    display: none;
 }
